@@ -2,9 +2,11 @@
 
 This is a repo of HPC workshops that will be used to facilitate on-site engagements, or be used at conferences and summits.
 
-## Cureent Workshops
+## Current Workshops
 
 * [WRF on AWS](README-WRF.rst)
+* [OpenFOAM on AWS](README-OpenFOAM.rst)
+* [Abaqus on AWS](README-Abaqus.rst)
 
 ## License
 
