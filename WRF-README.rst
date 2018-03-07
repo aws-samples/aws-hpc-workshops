@@ -11,8 +11,8 @@ This guide documents the process of running WRF on AWS, including compiling WRF 
 TL;DR
 
 #. Setup and launch cluster with CfnCluster
-#. Download, build with Intel compiler, and install NetCDF
-#. Download, build with Intel compiler, and install WRF
+#. NetCDF:  Download, build with Intel compiler, and install
+#. WRF:  Download, build with Intel compiler, and install
 #. Run CONUS 2.5k benchmark
 #. View result with ncview
 
@@ -37,6 +37,7 @@ Tutorials
 
 Conference Tutorials:
     Many WRF tutorials can be found on Tutorials Presented at user conference:
+    
     http://www2.mmm.ucar.edu/wrf/users/supports/tutorial.html
 
 OnLine WRF Tutorial
