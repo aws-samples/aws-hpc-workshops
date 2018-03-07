@@ -269,9 +269,9 @@ Make these changes:
     DM_FC           =       mpiifort
     ...
     OPTAVX          =       -xHost
-    CFLAGS_LOCAL    =       -w -O3 $(OPTAVX) -openmp
+    CFLAGS_LOCAL    =       -w -O3 $(OPTAVX) -qopenmp
     ...
-    FCOPTIM         =       -O3 $(OPTAVX) -openmp
+    FCOPTIM         =       -O3 $(OPTAVX) -qopenmp
 
 
 Compile
