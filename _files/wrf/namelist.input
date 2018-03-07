@@ -1,0 +1,116 @@
+ &time_control
+ run_days                            = 0,
+ run_hours                           = 3,
+ run_minutes                         = 0,
+ run_seconds                         = 0,
+ start_year                          = 2005,
+ start_month                         = 06,
+ start_day                           = 04,
+ start_hour                          = 06,
+ start_minute                        = 00,
+ start_second                        = 00,
+ end_year                            = 2005,
+ end_month                           = 06,
+ end_day                             = 04,
+ end_hour                            = 12,
+ end_minute                          = 00,
+ end_second                          = 00,
+ interval_seconds                    = 10800
+ input_from_file                     = .true.,
+ history_interval                    = 180,
+ frames_per_outfile                  = 1,
+ nocolons                            = .true.,
+ restart                             = .true.,
+ restart_interval                    = 360,
+ io_form_history                     = 2,
+ io_form_restart                     = 2,
+ io_form_input                       = 2,
+ io_form_boundary                    = 2,
+ io_form_auxhist2                    = 2,
+ debug_level                         = 0
+ /
+
+ &domains
+ time_step                           = 15,
+ time_step_fract_num                 = 0,
+ time_step_fract_den                 = 1,
+ max_dom                             = 1,
+ s_we                                = 1,
+ e_we                                = 1501,
+ s_sn                                = 1,
+ e_sn                                = 1201,
+ s_vert                              = 1,
+ e_vert                              = 35,
+ dx                                  = 2500,
+ dy                                  = 2500,
+ grid_id                             = 1,
+ parent_id                           = 0,
+ i_parent_start                      = 0,
+ j_parent_start                      = 0,
+ parent_grid_ratio                   = 1,
+ parent_time_step_ratio              = 1,
+ feedback                            = 1,
+ smooth_option                       = 0
+ lagrange_order                      = 2
+ interp_type                         = 2
+ extrap_type                         = 2
+ t_extrap_type                       = 2
+ use_surface                         = .true.
+ use_levels_below_ground             = .true.
+ num_metgrid_levels                  = 40,
+ eta_levels                          = 1.00000 , 0.99258 , 0.98275 , 0.96996 , 0.95372 ,
+                                       0.93357 , 0.90913 , 0.87957 , 0.84531 , 0.80683 ,
+                                       0.76467 , 0.71940 , 0.67163 , 0.62198 , 0.57108 ,
+                                       0.51956 , 0.46803 , 0.42030 , 0.37613 , 0.33532 ,
+                                       0.29764 , 0.26290 , 0.23092 , 0.20152 , 0.17452 ,
+                                       0.14978 , 0.12714 , 0.10646 , 0.08761 , 0.07045 ,
+                                       0.05466 , 0.03981 , 0.02580 , 0.01258 , 0.00000
+ /
+
+ &physics
+ mp_physics                          = 4,
+ mp_zero_out                         = 2,
+ mp_zero_out_thresh                  = 1.e-9,
+ ra_lw_physics                       = 1,
+ ra_sw_physics                       = 1,
+ radt                                = 10,
+ sf_sfclay_physics                   = 1,
+ sf_surface_physics                  = 2,
+ bl_pbl_physics                      = 1,
+ bldt                                = 0,
+ cu_physics                          = 0,
+ cudt                                = 5,
+ isfflx                              = 1,
+ ifsnow                              = 0,
+ icloud                              = 1,
+ surface_input_source                = 1,
+ num_soil_layers                     = 4,
+ maxiens                             = 1,
+ maxens                              = 1,
+ maxens2                             = 1,
+ maxens3                             = 1,
+ ensdim                              = 1,
+ /
+
+ &dynamics
+ w_damping                           = 1,
+ diff_opt                            = 1,
+ km_opt                              = 4,
+ khdif                               = 0,
+ kvdif                               = 0,
+ non_hydrostatic                     = .true.,
+ use_baseparam_fr_nml                = .t.,
+ /
+
+ &bdy_control
+ spec_bdy_width                      = 5,
+ spec_zone                           = 1,
+ relax_zone                          = 4,
+ specified                           = .true., 
+ nested                              = .false.,
+ /
+
+ &namelist_quilt
+ nio_tasks_per_group = 0,
+ nio_groups = 1,
+ /
