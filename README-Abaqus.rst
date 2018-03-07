@@ -1,8 +1,6 @@
 Abaqus
 ######
 
-.. toctree::
-
 Information
 ===========
 Abaqus is an FEA application used in manufacturing.
