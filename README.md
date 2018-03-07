@@ -1,6 +1,6 @@
 ## AWS HPC Workshops
 
-This is a repo of HPC workshops that will be used to facilitate on-site engagements, or be used at conferences and summits.
+This is a repo of HPC workshops that will be used to facilitate on-site engagements, or be used at conferences and summits.  This is not a code repo, but rather instructions and guides for enabling and validating HPC workloads on AWS.
 
 ## Current Workshops
 
