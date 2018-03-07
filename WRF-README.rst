@@ -11,21 +11,10 @@ This guide documents the process of running WRF on AWS, including compiling WRF 
 TL;DR
 
 #. Setup and launch cluster with CfnCluster
-#. Install Intel compiler
-#. Download, build, and install NetCDF
-#. Download, build, and install WRF
+#. NetCDF:  Download, build with Intel compiler, and install
+#. WRF:  Download, build with Intel compiler, and install
 #. Run CONUS 2.5k benchmark
-
-
-.. contents::
-    :backlinks: none
-    :depth: 3
-
-.. toctree::
-    :maxdepth: 1
-    :glob:
-
-    wrf/*
+#. View result with ncview
 
 
 ************
@@ -34,15 +23,22 @@ Introduction
 
 **WRF is used for both research and operation forecasting.**
 
-- Main Web Site:  http://www.wrf-model.org
-- V3 User Guide: http://www2.mmm.ucar.edu/wrf/users/docs/user_guide_V3/contents.html
-- Introduction Presentation: WRF Modeling System Overview - http://www2.mmm.ucar.edu/wrf/users/tutorial/201601/overview.pdf
+Main Web Site:  
+  http://www.wrf-model.org
+
+V3 User Guide:
+  http://www2.mmm.ucar.edu/wrf/users/docs/user_guide_V3/contents.html
+
+Introduction Presentation:
+  WRF Modeling System Overview - http://www2.mmm.ucar.edu/wrf/users/tutorial/201601/overview.pdf
 
 Tutorials
 =========
 
 Conference Tutorials:
-    Many WRF tutorials can be found on Tutorials Presented at user conference: http://www2.mmm.ucar.edu/wrf/users/supports/tutorial.html
+    Many WRF tutorials can be found on Tutorials Presented at user conference:
+    
+    http://www2.mmm.ucar.edu/wrf/users/supports/tutorial.html
 
 OnLine WRF Tutorial
     This online tutorial is a great place to start.  It walks through some of the basic WRF information, compiling and usage.
@@ -119,18 +115,11 @@ After creating the post install script, and setting options in the CfnCluster co
 Download and install the Intel compiler
 ***************************************
 
-Before building WRF or other related packages, the Intel compiler will need to be installed to achieve expected performance.  You can download a trial version here:
+Before building WRF or other related packages, the Intel compiler will need to be installed to achieve expected performance.  You can download the compiler here:
 
 https://software.intel.com/en-us/intel-parallel-studio-xe
 
 After the cluster has been created, login to the Master instance.  The Intel compiler needs to be installed in ``/shared`` on the **Master Instance**.
-
-
-Example Install
-===============
-
-`Appendix A - Intel Compiler`_  shows an example install in to the ``/shared`` directory on the Master Instance, which is an NFS mounted directory across all Compute instances.
-
 
 
 
@@ -141,7 +130,6 @@ Download and build NetCDF
 It is **strongly recommended** that you use NetCDF version 4.1.3 from the WRF compile link.
 
 `Appendix B - Build NetCDF with the Intel compiler`_ has the link to NetCDF and the build instructions using the Intel compiler.
-
 
 
 *****************************
@@ -560,305 +548,10 @@ You see the main application panel, and if you select **2d Vars -> UST** and cli
 
 
 
-***************************
-Appendix A - Intel Compiler
-***************************
-
-
-Installation - Intel Parallel Studio Compiler
-=============================================
-
-Download link (requires email and confirmation):
-  https://software.intel.com/en-us/intel-parallel-studio-xe/try-buy
-
-After the download you should have a tgz file, e.g. ``parallel_studio_xe_2017.tgz``
-
-
-**Decompress and run** ``sudo ./install.sh``
-
-.. code-block:: none
-
-    $ tar xvf parallel_studio_xe_2017.tgz
-    $ cd parallel_studio_xe_2017
-    $ sudo ./install.sh
-
-
-**You should see the Welcome screen, hit** ``Enter`` **and type** ``accept`` **for the license**
-
-.. code-block:: none
-
-    --------------------------------------------------------------------------------
-    Step 1 of 7 | Welcome
-    --------------------------------------------------------------------------------
-    Welcome to the Intel(R) Parallel Studio XE 2017 for Linux* setup program.
-
-
-    --------------------------------------------------------------------------------
-    You will complete the steps below during setup process:
-    Step 1 : Welcome
-    Step 2 : License agreement
-    Step 3 : License activation
-    Step 4 : Intel® Software Improvement Program
-    Step 5 : Options
-    Step 6 : Installation
-    Step 7 : Complete
-
-    --------------------------------------------------------------------------------
-    Press "Enter" key to continue or "q" to quit:
-
-
-**Skip the prerequisites check**
-
-The "Missing optional prerequisites" shown below are normal.
-
-.. code-block:: none
-
-    Step 2 of 7 | Prerequisites > Missing Optional Prerequisite(s)
-    --------------------------------------------------------------------------------
-    There are one or more optional unresolved issues. It is highly recommended to
-    resolve them all before you continue. You can fix them without exiting the setup
-    program and re-check. Or you can exit the setup program, fix them and run the
-    setup program again.
-    --------------------------------------------------------------------------------
-    Missing optional prerequisites
-    -- Unsupported OS
-    -- Intel(R) Trace Analyzer and Collector 2017 for Linux* OS: Unsupported OS
-    -- Intel(R) Cluster Checker 2017 for Linux* OS: Unsupported OS
-    -- Intel(R) VTune(TM) Amplifier XE 2017: Unsupported OS
-    -- Intel(R) Inspector 2017: Unsupported OS
-    -- Intel(R) Advisor 2017: Unsupported OS
-    -- The system is running in the virtual environment. Sampling drivers will not
-    be installed.
-    -- Cannot detect gtk library
-    --------------------------------------------------------------------------------
-    1. Skip missing optional prerequisites [default]
-    2. Show the detailed info about issue(s)
-    3. Re-check the prerequisites
-
-    h. Help
-    b. Back to the previous menu
-    q. Quit
-    --------------------------------------------------------------------------------
-    Please type a selection or press "Enter" to accept default choice [1]: 1
-
-
-**Choose to evaluate the product**
-
-.. code-block:: none
-
-    Step 3 of 7 | License activation
-    --------------------------------------------------------------------------------
-    If you have purchased this product and have the serial number and a connection
-    to the internet you can choose to activate the product at this time.
-    Alternatively, you can choose to evaluate the product or defer activation by
-    choosing the evaluate option. Evaluation software will time out in about one
-    month. You can also use license file or Intel(R) Software License Manager.
-    --------------------------------------------------------------------------------
-    1. I want to activate my product using a serial number [default]
-    2. I want to evaluate Intel(R) Parallel Studio XE 2017 Cluster Edition for
-    Linux* or activate later
-    3. I want to activate by using a license file, or by using Intel(R) Software
-    License Manager
-
-    h. Help
-    b. Back to the previous menu
-    q. Quit
-    --------------------------------------------------------------------------------
-    Please type a selection or press "Enter" to accept default choice [1]: 2
-
-
-
-**Choose if you want to help Intel improve their product**
-
-.. code-block:: none
-
-    Step 4 of 7 | Intel® Software Improvement Program
-    --------------------------------------------------------------------------------
-    Help improve your experience with Intel® software
-    Participate in the design of future Intel software. Select 'Yes' to give us
-    permission to learn about how you use your Intel software and we will do the
-    rest.
-        - No personally identifiable information is collected
-        - There are no additional follow-up emails by opting in
-        - You can stop participating at any time
-
-        Learn more about the Intel® Software Improvement Program
-        http://software.intel.com/en-us/articles/software-improvement-program
-
-    With your permission, Intel may automatically receive anonymous information
-    about how you use your current and future Intel® Software Development Products.
-    --------------------------------------------------------------------------------
-    1. Yes, I am willing to participate and improve Intel software. (Recommended)
-    2. No, I don't want to participate in the Intel® Software Improvement Program at
-    this time.
-
-    b. Back to the previous menu
-    q. Quit
-    --------------------------------------------------------------------------------
-    Please type a selection: 2
-
-
-**Do not use Cluster Installation**
-
-This would enable cluster compilation.
-
-.. code-block:: none
-
-    Step 5 of 7 | Options > Configure Cluster Installation
-    --------------------------------------------------------------------------------
-    This product can be installed on cluster nodes.
-    --------------------------------------------------------------------------------
-    1. Finish configuring installation target [default]
-
-    2. Installation target                           [ Current system only ]
-
-    h. Help
-    b. Back to the previous menu
-    q. Quit
-    --------------------------------------------------------------------------------
-    Please type a selection or press "Enter" to accept default choice [1]: 1
-
-
-**Update and Review the Intel installations options to install in to shared location**
-
-.. code-block:: none
-
-    ... snip ...
-
-    --------------------------------------------------------------------------------
-    1. Start installation Now [default]
-    2. Customize installation
-
-    h. Help
-    b. Back to the previous menu
-    q. Quit
-    --------------------------------------------------------------------------------
-    Please type a selection or press "Enter" to accept default choice [1]: 2
-
-
-**Select the Architecture(s)**
-
-Select only **Intel(R) 64**. If you select both IA-32 and Intel(R) 64 Architectures, you will need to install the 32-bit libraries (see below).
-
-.. code-block:: none
-
-    Step 5 of 7 | Options > Architecture selection
-    --------------------------------------------------------------------------------
-    Select the architecture(s) where your applications will run. If unsure, accept
-    the default options below or see
-    http://software.intel.com/en-us/articles/about-target-architecture-selection-dur
-    ing-installation for more information.
-
-    Target Architecture(s) of your applications:
-    --------------------------------------------------------------------------------
-    1. [ ]    IA-32
-    2. [x]    Intel(R) 64
-
-    3. Finish architecture selection [default]
-
-    Note: This system is an Intel(R) 64 architecture system.
-    Your application may be built to run on either IA-32 or Intel(R) 64
-    architectures.
-
-    b. Back to the previous menu
-    q. Quit
-    --------------------------------------------------------------------------------
-    Please type a selection or press "Enter" to accept default choice [3]:
-
-
-**32 bit builds**
-
-If you want build and run 32 bit binaries, you will need to install the 32 bit versions of these packages:
-
-- libgcc48.i686
-- glibc.i686
-- glibc-devel.i686
-- libstdc++48.i686
-- nss-softokn-freebl.i686
-
-For example:
-
-.. code-block:: none
-
-    sudo yum install libgcc48.i686 glibc.i686 glibc-devel.i686 libstdc++48.i686 nss-softokn-freebl.i686
-
-
-**Used default configuration, for everything execpt install path**
-
-Change ``/opt/intel`` to ``/shared/intel``
-
-.. code-block:: none
-
-    Step 5 of 7 | Options
-    --------------------------------------------------------------------------------
-    You are now ready to begin installation. You can use all default installation
-    settings by simply choosing the "Start installation Now" option or you can
-    customize these settings by selecting any of the change options given below
-    first. You can view a summary of the settings by selecting "Show pre-install
-    summary".
-    --------------------------------------------------------------------------------
-    1. Start installation Now [default]
-
-    2. Change install directory      [ /shared/intel ]
-    3. Change components to install  [ Custom ]
-    4. Change advanced options
-    5. Show pre-install summary
-
-    h. Help
-    b. Back to the previous menu
-    q. Quit
-    --------------------------------------------------------------------------------
-    Please type a selection or press "Enter" to accept default choice [1]: 1
-
-
-**Installation start**
-
-.. code-block:: none
-
-    Step 6 of 7 | Installation
-    --------------------------------------------------------------------------------
-    Each component will be installed individually. If you cancel the installation,
-    some components might remain on your system. This installation may take several
-    minutes, depending on your system and the options you selected.
-    --------------------------------------------------------------------------------
-    Installing Intel(R) Trace Analyzer for Intel(R) 64 Architecture component... done
-    --------------------------------------------------------------------------------
-    Installing Intel(R) Trace Collector for Intel(R) 64 Architecture component... done
-    --------------------------------------------------------------------------------
-    Installing Intel(R) Trace Collector for Intel(R) Many Integrated Core
-    Architecture component... done
-    --------------------------------------------------------------------------------
-
-    ... snip ...
-
-
-**"Complete" message**
-
-.. code-block:: none
-
-    Step 7 of 7 | Complete
-    --------------------------------------------------------------------------------
-    Thank you for installing and for using Intel(R) Parallel Studio XE 2017
-    Cluster Edition for Linux*.
-
-    Support services start from the time you install or activate your product. If
-    you have not already done so, please create your support account now to take
-    full advantage of your product purchase.
-
-    Your support account gives you access to free product updates and upgrades as
-    well as interactive technical support at Intel(R) Premier Support.
-
-    Click here https://software.intel.com/en-us/python-distribution
-    to download Intel(R) Distribution for Python*
-    This download will initiate separately. You can proceed with the installation
-    screen instructions.
-    --------------------------------------------------------------------------------
-    Press "Enter" key to quit:
-
 
 
 *************************************************
-Appendix B - Build NetCDF with the Intel compiler
+Appendix A - Build NetCDF with the Intel compiler
 *************************************************
 
 .. note::  Building NetCDF with the Intel compiler
@@ -980,7 +673,7 @@ Run "make install"
 
 
 ********************************
-Appendix C - Post Install Script
+Appendix B - Post Install Script
 ********************************
 
 .. code-block:: none
