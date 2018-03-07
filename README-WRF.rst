@@ -4,6 +4,11 @@ WRF on AWS
 
 **Weather Research and Forecasting Model**
 
+.. contents::
+    :backlinks: none
+    :depth: 2
+    
+
 This guide documents the process of running WRF on AWS, including compiling WRF using the Intel compiler.
 
 .. note::  This guide uses the trial version of the Intel compiler, if you plan on running this in production, please contact Intel for a license.
