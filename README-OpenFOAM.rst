@@ -1,6 +1,6 @@
-########
-OpenFOAM
-########
+###############
+OpenFOAM on AWS
+###############
 
 .. contents::
     :backlinks: none
