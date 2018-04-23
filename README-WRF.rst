@@ -73,7 +73,7 @@ As part of the cluster setup, you will need to create a post install file that w
 - Sets TCP values
 - Sets ulimit values - limits need to be setup properly to run (e.g. stack size: ``ulimit -s``)
 
-`Appendix C - Post Install Script`_ has the script.  Using this script, create a file in a S3 bucket similar to ``s3://bucket-id1-cfncluster/cfncluster_postinstall.sh``.  Use that file for the ``post_install`` argument in the CfnCluster config file, and you will also need to add the bucket to the ``s3_read_write_resource`` option:
+***Appendix C - Post Install Script** has the script.  Using this script, create a file in a S3 bucket similar to ``s3://bucket-id1-cfncluster/cfncluster_postinstall.sh``.  Use that file for the ``post_install`` argument in the CfnCluster config file, and you will also need to add the bucket to the ``s3_read_write_resource`` option:
 
 For example:
 
