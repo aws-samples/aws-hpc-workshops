@@ -546,7 +546,7 @@ Run ncview on the wrfout* file:
 
 You see the main application panel, and if you select **2d Vars -> UST** and click on the image, you should see something like this:
 
-.. image:: _images/ncview_wrf.png
+.. image:: images/ncview_wrf.png
     :width: 800px
 
 
