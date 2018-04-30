@@ -122,7 +122,7 @@ You should see something similar to this at the bottom of the output:
 
 Example output image:
 
-.. image:: _images/OpenFOAM_output.png
+.. image:: images/OpenFOAM_output.png
     :width: 300px
 
 |

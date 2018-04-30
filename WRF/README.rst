@@ -11,9 +11,12 @@ WRF on AWS
 
 This guide documents the process of running WRF on AWS, including compiling WRF using the Intel compiler.
 
-.. note::  This guide uses the trial version of the Intel compiler, if you plan on running this in production, please contact Intel for a license.
+.. note::
+   This guide uses the trial version of the Intel compiler, if you plan on running this in production, please contact Intel
+   for a license.
 
-TL;DR
+**Overview**
+
 
 #. Setup and launch cluster with CfnCluster
 #. NetCDF:  Download, build with Intel compiler, and install
@@ -546,7 +549,7 @@ Run ncview on the wrfout* file:
 
 You see the main application panel, and if you select **2d Vars -> UST** and click on the image, you should see something like this:
 
-.. image:: _images/ncview_wrf.png
+.. image:: images/ncview_wrf.png
     :width: 800px
 
 
