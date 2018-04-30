@@ -4,9 +4,9 @@ This is a repo of HPC workshops that will be used to facilitate on-site engageme
 
 ## Current Workshops
 
-* [WRF on AWS](README-WRF.rst)
-* [OpenFOAM on AWS](README-OpenFOAM.rst)
-* [Abaqus on AWS](README-Abaqus.rst)
+* [WRF on AWS](WRF/README.rst)
+* [OpenFOAM on AWS](OpenFOAM/README.rst)
+* [Abaqus on AWS](Abaqus/README.rst)
 
 ## Submitting a workshop
 
