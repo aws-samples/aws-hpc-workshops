@@ -32,7 +32,7 @@ Abaqus seems to be especially sensitive to the Linux kernel version.  For one cu
 
 UC5 & UC4 represent the customer's model names.  Moving from a 2.6 kernel to 3.10 took the run time from 103 minutes to 78 minutes.
 
-.. image:: _files/abaqus/abaqus_results.jpg
+.. image:: images/abaqus_results.jpg
 
 The customer was also able to set the number of MPI threads to match that of the number of cores.  When doing this, they took the run time even further down to 65 minutes.
 
