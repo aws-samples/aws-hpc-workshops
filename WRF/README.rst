@@ -11,7 +11,7 @@ WRF on AWS
 
 This guide documents the process of running WRF on AWS, including compiling WRF using the Intel compiler.
 
-.. important::  This guide uses the trial version of the Intel compiler, if you plan on running this in production, please contact Intel for a license.
+.. note::  This guide uses the trial version of the Intel compiler, if you plan on running this in production, please contact Intel for a license.
 
 Overview
 ========
