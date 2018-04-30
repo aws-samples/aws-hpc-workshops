@@ -11,8 +11,8 @@ Information
 ===========
 Abaqus is an FEA application used in manufacturing.
 
-TL;DR
-=====
+Overview
+========
 * Use an OS with the 3.10 kernel
 * Disable Hyperthreading
 * Use Platform MPI or Intel MPI
