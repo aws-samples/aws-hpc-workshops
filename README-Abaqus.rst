@@ -97,3 +97,7 @@ Abaqus/Implicit:
   - MPI limited
   - Scales well up to 64-96 cores (< 100 cores)
 
+
+Abaqus Performance Data and Benchmarks
+======================================
+https://www.3ds.com/support/hardware-and-software/simulia-system-information/abaqus-614/performance-data/
